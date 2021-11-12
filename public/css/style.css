@@ -1,0 +1,52 @@
+.header{
+    background-image: url("../images/italian-wedding-decoration-green-eucalyptus-oranges-pink-f\ 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title{
+    font-family: 'Cardo';
+    color: #FFF;
+    -webkit-text-stroke-color: #FFE660;
+    -webkit-text-stroke-width: 1px;
+    font-size: 72px
+}
+
+.banner{
+    background-color: #A0D65D;
+}
+
+.description{
+    color: white;
+}
+
+h3.description{
+    font-size:48px;
+    font-family: 'Dancing Script';
+}
+
+p.description{
+    font-size: 24px;
+    font-family: 'Cardo';
+}
+
+.foot{
+    color: white;
+    font-family: 'Cardo';
+}
+
+h2.foot{
+    font-size:48px;
+}
+
+h4.foot{
+    font-size: 48px;
+}
+
+p.foot{
+    font-size: 14px;
+}
+
+h6.foot{
+    font-size: 24px;
+}
