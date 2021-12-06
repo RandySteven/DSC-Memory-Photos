@@ -28,6 +28,19 @@
         </div>
     </div>
 
+    @php
+        $categories = App\Models\Category::get();
+    @endphp
+
+    <div class="my-5">
+        <div class="grid grid-cols-3 px-2 mx-2">
+            {{-- list of objects --}}
+            @foreach ($categories as $category)
+                <img src="{{ asset($category->categoryThumbnail) }}" alt="{{ $category->categoryThumbnail }}">
+            @endforeach
+        </div>
+    </div>
+
     <div class="banner px-20 my-20">
         <div class="grid grid-cols-2 py-20">
             <div data-aos="fade-up-right">
