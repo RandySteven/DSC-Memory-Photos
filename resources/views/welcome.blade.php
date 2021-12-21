@@ -32,11 +32,17 @@
         $categories = App\Models\Category::get();
     @endphp
 
+    <div class="my-5 mx-5 px-5">
+        <a href="{{ route('category.index') }}" class="bg-green-500 px-2 py-2 text-white">See All Categories</a>
+    </div>
+
     <div class="my-5">
-        <div class="grid grid-cols-3 px-2 mx-2">
+        <div class="grid grid-cols-3 mx-5 justify-center">
             {{-- list of objects --}}
             @foreach ($categories as $category)
-                <img src="{{ asset($category->categoryThumbnail) }}" alt="{{ $category->categoryThumbnail }}">
+            <a href="{{ route('category.show', $category) }}">
+                <img src="{{ asset($category->categoryThumbnail) }}" alt="{{ $category->categoryThumbnail }}" class="rounded-full ml-5">
+            </a>
             @endforeach
         </div>
     </div>

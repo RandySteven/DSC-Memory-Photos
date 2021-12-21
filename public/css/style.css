@@ -1,3 +1,8 @@
+body{
+    overflow-x: hidden;
+    width: 100%;
+}
+
 .header{
     background-image: url("../images/italian-wedding-decoration-green-eucalyptus-oranges-pink-f\ 1.png");
     background-size: cover;
