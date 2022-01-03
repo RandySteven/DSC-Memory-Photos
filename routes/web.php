@@ -30,8 +30,16 @@ Route::get('/category', [CategoryController::class, 'index'])->name('category.in
 // ini ambil salah satu data
 Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
 
-Route::get('/album/create', [AlbumController::class, 'create'])->name('album.create');
-Route::post('/album/store', [AlbumController::class, 'store'])->name('album.store');
+//prefix
+Route::prefix('album')->group(function(){
+    Route::get('/create', [AlbumController::class, 'create'])->name('album.create');
+    Route::post('/store', [AlbumController::class, 'store'])->name('album.store');
+    Route::get('/{album:slug}', [AlbumController::class, 'show'])->name('album.show');
+    Route::get('/album-edit/{album:slug}', [AlbumController::class, 'edit'])->name('album.edit');
+    Route::put('/update/{album:slug}', [AlbumController::class, 'update'])->name('album.update');
+    Route::delete('/album-delete/{album:slug}', [AlbumController::class, 'destroy'])->name('album.destroy');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

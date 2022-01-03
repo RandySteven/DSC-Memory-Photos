@@ -16,8 +16,12 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        @isset($style)
+            {{ $style }}
+        @endisset
     </head>
-    <body class="font-sans antialiased">
+    <body>
         <div class="min-h-screen bg-gray-100">
             @isset(Auth::user()->name)
                 @include('layouts.navigation')

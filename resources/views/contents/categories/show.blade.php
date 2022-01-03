@@ -10,8 +10,10 @@
 
         @forelse ($albums as $album)
         <div>
-            <img width="200" src="{{ asset('storage/'.$album->albumThumbnail) }}" alt="">
-            <h1>{{ $album->albumName }}</h1>
+            <a href="{{ route('album.show', $album) }}">
+                <img width="200" src="{{ asset('storage/'.$album->albumThumbnail) }}" alt="">
+                <h1>{{ $album->albumName }}</h1>
+            </a>
         </div>
         @empty
             <h3>
