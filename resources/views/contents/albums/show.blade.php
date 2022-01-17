@@ -5,8 +5,18 @@
 
     <x-slot name="slot">
         <img src="{{ asset('storage/'.$album->albumThumbnail) }}" alt="{{ $album->albumThumbnail }}">
+        <p>{{ $album->user->name }}</p>
         <p>{{ $album->albumDescription }}</p>
 
+        {{-- user acces --}}
+        {{-- @isset(Auth::user()->id) --}}
+        {{-- @auth --}}
+        @guest
+            <div class="bg-green-500 text-green-900 w-full text-center">
+                Harus <a href="{{ route('login') }}">login</a> sebagai user dulu
+            </div>
+        @else
+        @if (Auth::user()->id == $album->user_id)
         <div class="grid grid-cols-2">
             <div>
                 <a href="{{ route('album.edit', $album) }}" class="bg-green-500 hover:bg-green-400 text-white px-2 py-1">Edit</a>
@@ -21,7 +31,7 @@
         </div>
 
         <div class="container">
-            <form action="" method="post" enctype="multipart/form-data" id="createForm">
+            <form action="{{ route('photo.store') }}" method="post" enctype="multipart/form-data" id="createForm">
                 @csrf
                 <div class="form-group">
                     <label for="photoTitle">Photo Title</label>
@@ -37,6 +47,8 @@
                 </div>
                 <input type="hidden" name="album_id" value="{{ $album->id }}">
                 <input type="hidden" name="user_id" value="{{ $album->user_id }}">
+
+                <button type="submit" class="w-full bg-green-500 text-white py-5 text-center">Create Photo</button>
             </form>
         </div>
 
@@ -59,6 +71,11 @@
                 <a href="#createForm">Create Photo</a>
             @endforelse
         </div>
+        @endif
+        @endguest
+        {{-- @endauth --}}
+        {{-- @endisset --}}
+        {{-- user acces --}}
 
     </x-slot>
 </x-app-layout>

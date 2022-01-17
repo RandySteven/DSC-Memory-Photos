@@ -45,6 +45,8 @@
                     <textarea name="albumDescription" id="albumDescription" class="w-full" rows="10"></textarea>
                 </div>
 
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
                 <button type="submit" class="bg-green-500 py-3 hover:bg-green-600 rounded-sm text-white w-full">Create Album</button>
             </form>
         </div>

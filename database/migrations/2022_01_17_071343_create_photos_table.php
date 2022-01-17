@@ -19,8 +19,8 @@ class CreatePhotosTable extends Migration
             $table->string('slug');
             $table->string('photoDescription');
             $table->string('photoPhoto');
-            $table->foreignId('album_id')->references('albums')->on('id')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('user_id')->references('users')->on('id')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('album_id')->constrained('albums')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

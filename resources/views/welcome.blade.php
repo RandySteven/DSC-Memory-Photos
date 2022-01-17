@@ -19,6 +19,8 @@
     <div class="header flex items-top justify-center min-h-screen">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="">
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
                 <h1 class="title text-center my-52">
                     <span data-aos="zoom-in" data-aos-duration="2000">
                         MEMORY <br> PHOTOS

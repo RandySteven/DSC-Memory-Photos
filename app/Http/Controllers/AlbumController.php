@@ -22,14 +22,14 @@ class AlbumController extends Controller
             'albumDescription' => $request->albumDescription,
             'slug' => \Str::slug($request->albumName),
             'category_id' => $request->category_id,
-            'user_id' => 1,
+            'user_id' => $request->user_id,
             'albumThumbnail' => $request->file('albumThumbnail')->store("images/albums")
         ]);
         return redirect('/');
     }
 
     public function show(Album $album){
-        $photos = $album->photos->get();
+        $photos = $album->photos()->get();
         return view('contents.albums.show', compact('album', 'photos'));
     }
 
