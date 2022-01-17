@@ -29,7 +29,8 @@ class AlbumController extends Controller
     }
 
     public function show(Album $album){
-        return view('contents.albums.show', compact('album'));
+        $photos = $album->photos->get();
+        return view('contents.albums.show', compact('album', 'photos'));
     }
 
     public function edit(Album $album){
